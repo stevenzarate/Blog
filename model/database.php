@@ -1,5 +1,5 @@
 <?php
-//stored strings into variables
+//stored strings into variables to connect to the database 
     $host = "localhost";
     $username = "root";
     $password = "root";
