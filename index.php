@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        echo "Web service is running locally"; 
+            require_once (__DIR__ . "/controller/create-db.php");//it requires the file so we could the information available
         ?>
     </body>
 </html>
