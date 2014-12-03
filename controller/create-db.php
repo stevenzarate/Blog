@@ -6,9 +6,19 @@
     if ($connection->connect_error){
         die("Error:" . $connection->connect_error); //die means its gonna show that we have an error
     }
-    //if it echos out success it means theres no connection error
+    
+    $exists = $connection->select_db($database);//trying to access a database that exists on my sql sever
+    
+    if (!$exists){//seeing if it connects to the database
+       $query = $connection ->query("CREATE DATABASE $database ");//this creates a query and the query gets applied to our connection and it gonna get stored in the query then it tells us if its true or false
+       
+       if($query){//checks if we successfully created our database
+           echo" Successfully created database; " . $database; 
+       }
+       
+    }
     else {
-        echo 'success' .$connection->host_info;
+        echo 'Database already exists';//if the database already exists 
     }
     
     $connection->close();//close our connection
